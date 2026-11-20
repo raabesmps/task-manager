@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { Tarefa } from "@/lib/schemas";
 import { trpc } from "@/trpc/client";
 
@@ -44,6 +45,9 @@ export function TarefaItem({ tarefa, onFeedback }: TarefaItemProps) {
         </time>
       </div>
       <div className="acoes">
+        <Link href={`/tarefas/${tarefa.id}/editar`} className="acao">
+          Editar
+        </Link>
         <button
           type="button"
           className="acao acao-excluir"
