@@ -4,6 +4,18 @@ A simple task manager built with **Next.js 15** and **tRPC**. Tasks live in memo
 
 > A Portuguese version is available at the end of this file, in a collapsible section.
 
+<p align="center">
+  <img src="docs/demo.gif" alt="Demo of the app: the task list, the form with a validation error, creating a task, infinite scroll, deleting with feedback and editing" width="760">
+</p>
+
+<p align="center">
+  <img src="docs/screenshot-list.png" alt="The task list on desktop" width="560">
+  &nbsp;&nbsp;
+  <img src="docs/screenshot-mobile.png" alt="The task list on a phone" width="170">
+</p>
+
+<p align="center"><sub>Recorded from the real app (production build), with the API artificially slowed to about 0.7 s so the loading states are visible. The data is the fictional seed.</sub></p>
+
 ## Features
 
 - Create, list, edit and delete tasks (`titulo` required, `descricao` optional).
@@ -73,6 +85,7 @@ src/
 │       ├── tarefa.test.ts         # router tests
 │       └── index.ts               # appRouter and the AppRouter type
 └── trpc/client.ts                 # createTRPCReact<AppRouter>()
+docs/                              # images used by this README (demo GIF, screenshots)
 ```
 
 ## API
@@ -126,7 +139,7 @@ Database, authentication, Tailwind or UI libraries, global state managers, form 
 
 # Gerenciador de Tarefas
 
-Um gerenciador de tarefas simples feito com **Next.js 15** e **tRPC**. As tarefas ficam em memória (sem banco de dados), a lista é renderizada no servidor e carrega mais itens conforme você rola, e toda entrada é validada no servidor. Todos os dados são fictícios.
+Um gerenciador de tarefas simples feito com **Next.js 15** e **tRPC**. As tarefas ficam em memória (sem banco de dados), a lista é renderizada no servidor e carrega mais itens conforme você rola, e toda entrada é validada no servidor. Todos os dados são fictícios. O GIF de demonstração e os prints estão no topo deste arquivo.
 
 ## Funcionalidades
 
