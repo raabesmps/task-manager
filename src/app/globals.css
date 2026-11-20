@@ -1,4 +1,83 @@
+:root {
+  --bg: #f3f5fb;
+  --surface: #ffffff;
+  --line: #e1e6f1;
+  --text: #1b2437;
+  --muted: #5d6b86;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.site-header {
+  /* Same left edge as the content column of <main> (max 40rem, centered). */
+  padding: 0.875rem max(1.25rem, calc((100% - 40rem) / 2));
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header a {
+  color: var(--text);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.tarefas {
+  display: grid;
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tarefa {
+  display: grid;
+  gap: 0.125rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgb(27 36 55 / 0.05);
+}
+
+.tarefa h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.tarefa p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.tarefa time {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.vazio {
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--muted);
 }

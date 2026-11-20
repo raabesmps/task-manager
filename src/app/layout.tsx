@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Providers } from "@/components/Providers";
 import "./globals.css";
 
@@ -13,6 +14,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
+        <header className="site-header">
+          <Link href="/">Gerenciador de Tarefas</Link>
+        </header>
         <Providers>{children}</Providers>
       </body>
     </html>
