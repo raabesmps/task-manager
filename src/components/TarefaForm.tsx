@@ -38,6 +38,12 @@ export function TarefaForm({ tarefa }: { tarefa?: Tarefa }) {
   // Stay disabled after success too, until the navigation completes.
   const salvando = mutation.isPending || mutation.isSuccess;
 
+  // A field's error goes away as soon as the user edits it; submitting
+  // validates again, so it comes back if the value is still invalid.
+  function limparErro(campo: keyof FieldErrors) {
+    setFieldErrors((atuais) => ({ ...atuais, [campo]: undefined }));
+  }
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     // The server validates again; this only saves a round trip.
@@ -62,7 +68,10 @@ export function TarefaForm({ tarefa }: { tarefa?: Tarefa }) {
         <input
           id="titulo"
           value={titulo}
-          onChange={(event) => setTitulo(event.target.value)}
+          onChange={(event) => {
+            setTitulo(event.target.value);
+            limparErro("titulo");
+          }}
           aria-invalid={Boolean(fieldErrors.titulo)}
           aria-describedby={fieldErrors.titulo ? "titulo-erro" : undefined}
         />
@@ -71,7 +80,10 @@ export function TarefaForm({ tarefa }: { tarefa?: Tarefa }) {
         <textarea
           id="descricao"
           value={descricao}
-          onChange={(event) => setDescricao(event.target.value)}
+          onChange={(event) => {
+            setDescricao(event.target.value);
+            limparErro("descricao");
+          }}
           aria-invalid={Boolean(fieldErrors.descricao)}
           aria-describedby={fieldErrors.descricao ? "descricao-erro" : undefined}
         />
