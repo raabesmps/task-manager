@@ -6,6 +6,7 @@ import { useState } from "react";
 import { tarefaInputSchema, type Tarefa } from "@/lib/schemas";
 import { trpc } from "@/trpc/client";
 import { Campo } from "./Campo";
+import { RotuloLink } from "./RotuloLink";
 
 type FieldErrors = { titulo?: string; descricao?: string };
 
@@ -80,7 +81,7 @@ export function TarefaForm({ tarefa }: { tarefa?: Tarefa }) {
           {salvando ? "Salvando..." : "Salvar"}
         </button>
         <Link href="/" className="botao botao-secundario">
-          Cancelar
+          <RotuloLink>Cancelar</RotuloLink>
         </Link>
       </div>
     </form>

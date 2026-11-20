@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { Tarefa } from "@/lib/schemas";
 import { trpc } from "@/trpc/client";
+import { RotuloLink } from "./RotuloLink";
 
 export type Feedback = { tipo: "sucesso" | "erro"; mensagem: string };
 
@@ -46,7 +47,7 @@ export function TarefaItem({ tarefa, onFeedback }: TarefaItemProps) {
       </div>
       <div className="acoes">
         <Link href={`/tarefas/${tarefa.id}/editar`} className="acao">
-          Editar
+          <RotuloLink>Editar</RotuloLink>
         </Link>
         <button
           type="button"
