@@ -4,6 +4,11 @@
   --line: #e1e6f1;
   --text: #1b2437;
   --muted: #5d6b86;
+  --accent: #3b5bdb;
+  --danger: #c2255c;
+  --danger-bg: #fdeaf1;
+  --ok-text: #1b6a3a;
+  --ok-bg: #e5f6ec;
 }
 
 body {
@@ -49,13 +54,24 @@ h1 {
 }
 
 .tarefa {
-  display: grid;
-  gap: 0.125rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
   padding: 0.75rem 1rem;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 12px;
   box-shadow: 0 1px 2px rgb(27 36 55 / 0.05);
+}
+
+/* The actions wrap under the text when the card is narrow. */
+.tarefa-corpo {
+  display: grid;
+  flex: 1 1 14rem;
+  gap: 0.125rem;
+  min-width: 0;
 }
 
 .tarefa h2 {
@@ -74,6 +90,58 @@ h1 {
   font-size: 0.8rem;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
+}
+
+.acoes {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.acao {
+  padding: 0.3rem 0.65rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 550;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.acao:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.acao:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.acao-excluir {
+  color: var(--danger);
+}
+
+.acao-excluir:hover:not(:disabled) {
+  background: var(--danger-bg);
+}
+
+.aviso {
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.875rem;
+  font-weight: 500;
+  border-radius: 10px;
+}
+
+.aviso-sucesso {
+  color: var(--ok-text);
+  background: var(--ok-bg);
+}
+
+.aviso-erro {
+  color: var(--danger);
+  background: var(--danger-bg);
 }
 
 .vazio {
