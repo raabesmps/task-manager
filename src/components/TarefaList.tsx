@@ -6,10 +6,9 @@ import { CarregarMais } from "./CarregarMais";
 import { TarefaItem, type Feedback } from "./TarefaItem";
 
 export function TarefaList({ initialPage }: { initialPage: TarefaPage }) {
-  // The page rendered on the server is the first page of the query, so there
-  // is no loading flash and no refetch right after hydration. gcTime 0 drops
-  // the cache when the list unmounts, so coming back from the form starts from
-  // the fresh server render instead of a stale cached list.
+  // The server-rendered page is the first page of the query: no loading flash,
+  // no refetch after hydration. gcTime 0 drops the cache on unmount, so coming
+  // back from the form starts from the fresh server render, not a stale list.
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isFetchNextPageError, error } =
     trpc.tarefa.list.useInfiniteQuery(
       {},
