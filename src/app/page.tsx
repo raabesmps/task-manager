@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { TarefaList } from "@/components/TarefaList";
 import { caller } from "@/server/caller";
 
@@ -11,7 +12,12 @@ export default async function HomePage() {
 
   return (
     <main>
-      <h1>Tarefas</h1>
+      <div className="titulo-barra">
+        <h1>Tarefas</h1>
+        <Link href="/tarefas/nova" className="botao">
+          Nova tarefa
+        </Link>
+      </div>
       <TarefaList initialPage={initialPage} />
     </main>
   );
