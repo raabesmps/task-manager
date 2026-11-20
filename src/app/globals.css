@@ -100,6 +100,45 @@ h1 {
   background: var(--bg);
 }
 
+/* Navigation feedback: a small spinner after a link has been pending for 150ms. */
+.rotulo-link[data-pendente="true"]::after {
+  content: "";
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin-left: 0.45em;
+  vertical-align: -0.05em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation:
+    aparecer 0.01s 150ms both,
+    girar 0.7s linear infinite;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotulo-link[data-pendente="true"]::after {
+    animation: aparecer 0.01s 150ms both;
+    border-right-color: currentColor;
+    opacity: 0.6;
+  }
+}
+
 .tarefas {
   display: grid;
   gap: 0.625rem;
